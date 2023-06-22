@@ -1,7 +1,10 @@
 #include <Arduino.h>
+#include <input_FSM.h>
 
 // put function declarations here:
 int myFunction(int, int);
+
+input pulsador1, llaveRotativa;
 
 void setup() {
   // put your setup code here, to run once:

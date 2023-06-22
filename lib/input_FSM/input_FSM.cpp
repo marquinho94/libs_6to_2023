@@ -2,9 +2,10 @@
 #include <input_FSM.h>
 
 input::input (){
-    type = digital;
+    type = digital; //verificar los parámtros por defecto 
     hold_ms_1=200;
     hold_ms_2=1000;
+    #warning " verificar los valores por defecto "
 }
 
 void input::setInput(int pinNumber, types type, int hold1, int hold2){
@@ -24,9 +25,15 @@ void input::setInput(int pinNumber, types type, int hold1, int hold2){
             
         break;
 
+    case analog:
+        pinMode(pin,analog);
+        break;
+
 
     
     default:
+        pinMode(pin,INPUT);
+        #warning "input not defined" 
         break;
     }
 }
