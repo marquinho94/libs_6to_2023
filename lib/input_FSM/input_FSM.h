@@ -1,39 +1,21 @@
-#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega328P__)
-
-// definicion de puines disponibles para pull up ?? 
- 
-#elif defined(__ARDUINO_ESP8266_NODEMCU_ESP12E__)
-
-// definicion de puines disponibles para pull up ?? 
-
-
-#else 
-
-#warning "Unsupported board, check pins declarations"
-
-
-#endif
-
-
+// input_FSM.h
 
 #ifndef INPUT_FSM_H
 #define INPUT_FSM_H
 
+#include <Arduino.h>
+
 class input {
-    private:
-    enum types{digital, pullup, analog};
+public:
+    enum types { digital, pullup, analog };
+    enum states { reading, delay, reRead };
     types type;
-    int pin;
-    int hold_ms_1, hold_ms_2;
-    public:
+    states state;
+    uint8_t pin;
+    uint16_t hold_ms_1, hold_ms_2;
     input();
-    void setInput(int pinNumber, types type, int hold1, int hold2);
-    int getInput();
+    void setInput(uint8_t pinNumber, types inputType = digital, uint16_t hold1 = 200, uint16_t hold2 = 1000);
+    uint16_t getInput();
 };
 
-
-
-
-
 #endif
-
