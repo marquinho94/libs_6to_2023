@@ -20,12 +20,13 @@
 #define INPUT_FSM_H
 
 class input {
-    private:
+    public:
     enum types{digital, pullup, analog};
     types type;
+
     int pin;
     int hold_ms_1, hold_ms_2;
-    public:
+
     input();
     void setInput(int pinNumber, types type, int hold1, int hold2);
     int getInput();

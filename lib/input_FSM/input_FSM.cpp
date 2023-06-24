@@ -8,7 +8,7 @@ input::input (){
     #warning " verificar los valores por defecto "
 }
 
-void input::setInput(int pinNumber, types type, int hold1, int hold2){
+void input::setInput(int pinNumber, types type = digital, int hold1=200, int hold2=200){
     pin=pinNumber;
     type=type;
     hold_ms_1=hold1;
@@ -37,4 +37,5 @@ void input::setInput(int pinNumber, types type, int hold1, int hold2){
         break;
     }
 }
+
 
