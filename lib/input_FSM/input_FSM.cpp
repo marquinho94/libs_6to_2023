@@ -10,13 +10,6 @@ input::input()
      */
 }
 
-<<<<<<< HEAD
-void input::setInput(int pinNumber, types type = digital, int hold1=200, int hold2=200){
-    pin=pinNumber;
-    type=type;
-    hold_ms_1=hold1;
-    hold_ms_2=hold2;
-=======
 void input::setInput(uint8_t pinNumber, types inputType, uint16_t hold1, uint16_t hold2)
 {
     type = inputType;
@@ -47,9 +40,6 @@ void input::setInput(uint8_t pinNumber, types inputType, uint16_t hold1, uint16_
     }
 }
 
-<<<<<<< HEAD
-
-=======
 uint16_t input::getInput()
 {
     static uint8_t count = 0;
