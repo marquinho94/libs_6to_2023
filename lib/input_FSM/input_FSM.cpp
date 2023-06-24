@@ -17,7 +17,7 @@ void input::setInput(uint8_t pinNumber, types inputType, uint16_t hold1, uint16_
     hold_ms_2 = hold2;
     state = reading;
 
->>>>>>> 27f23ccd5fd7b0d5c1b21c6208ccfcc3d5fd229b
+
     switch (type)
     {
     case digital:
@@ -62,4 +62,4 @@ uint16_t input::getInput()
         break;
     };
 }
->>>>>>> 27f23ccd5fd7b0d5c1b21c6208ccfcc3d5fd229b
+
