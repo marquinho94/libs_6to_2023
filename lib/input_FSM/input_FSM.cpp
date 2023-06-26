@@ -1,6 +1,8 @@
 #include <Arduino.h>
 #include "input_FSM.h"
 
+    
+
 input::input()
 {
     /* type = digital;
@@ -35,6 +37,10 @@ void input::setInput(uint8_t pinNumber, types inputType, uint16_t hold1, uint16_
     {
     case digital:
         pinMode(pin, INPUT);
+        // Esto hay que borrarlo 
+        Serial.print("configurado pin digital");
+        Serial.println(pin);
+        // hasta ca 
         break;
 
     case pullup:
@@ -84,18 +90,20 @@ uint16_t input::getInput()
     switch (state)
     {
     case reading:
+        Serial.println("leyendo");
         if (digitalRead(pin) != baseState)
         {
             state = delay;
             holder1 = millis();
             hold_1_flag = false;
+            Serial.println("cambio de estado");
         }
         break;
 
     case delay:
         if (hold_1_flag)
         {
-            state = reading;
+            state = reRead;
         }
         break;
     case reRead:

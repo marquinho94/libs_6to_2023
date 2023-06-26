@@ -2,8 +2,11 @@
 
 #ifndef INPUT_FSM_H
 #define INPUT_FSM_H
+ 
+    #ifndef ARDUINO_H
+    #include <Arduino.h>
+    #endif
 
-#include <Arduino.h>
 
 class input {
 public:
